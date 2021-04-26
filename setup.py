@@ -26,14 +26,14 @@ with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
 __setup__(
-    name="autopsy",
+    name="autopsi",
     version=__get_branch_name__(),
     author="qbitkit Team",
     author_email="brianlechthaler@protonmail.ch",
     description="Quantum Simulator and Debugger",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/qbitkit/autopsy",
+    url="https://github.com/qbitkit/autopsi",
     packages=__findpkg__(),
     classifiers=[
         "Programming Language :: Python :: 3",
