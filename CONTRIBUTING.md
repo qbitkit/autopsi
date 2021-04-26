@@ -7,7 +7,7 @@ Any interactions with any official `qbitkit` repositories including `autopsi` , 
 2) Don't advertise.
 3) Don't have any details on your profile (profile picture, bio, user's name, etc.) that violate our Code of Conduct
 
-Failure to comply with contribution guidelines listed here will result in the offender being denied participation in any `qbitkit` affiliated ventures of any kind.
+Failure to comply with contribution guidelines listed here will result in the offender being denied participation in any `qbitkit` affiliated ventures of any kind, including `autopsi`.
 When we say failure to comply will result in block listing, what we mean by block listing is following these procedures:
 1) Removing any references to any likenesses of the offender wherever removal of such content is possible and has no destructive outcomes.
 2) Blocking any account bearing likeness to the offender from interacting with any `qbitkit` affiliated content, including `autopsi`.
