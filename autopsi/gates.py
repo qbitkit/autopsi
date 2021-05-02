@@ -24,5 +24,5 @@ class h(__GateTensor__):
         sqrt = self.backend.sqrt
 
         matrix = [1,1,1,-1]
-        return div(matrix,
-                   sqrt(2)).reshape(2,2)
+        return div([1, 1, 1, -1],
+                   sqrt(2)).reshape(2, 2)
