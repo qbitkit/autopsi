@@ -31,4 +31,3 @@ class h(__GateTensor__):
                         dtype=self.dtype),
                    sqrt(2)).reshape(2, 2)
 
-class ry
