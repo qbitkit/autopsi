@@ -22,6 +22,9 @@ class h(__GateTensor__):
 
         div = self.backend.div
         sqrt = self.backend.sqrt
+        arry = self.backend.array
 
-        return div([1, 1, 1, -1],
+        return div(arry([1, 1, 1, -1],
+                        dtype=self.dtype),
                    sqrt(2)).reshape(2, 2)
+
