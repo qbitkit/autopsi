@@ -14,3 +14,15 @@ class __GateTensor__:
                  ):
         self.backend = backend
         self.dtype = dtype
+
+class h(__GateTensor__):
+    """Hadamard gate"""
+    def tensor(self):
+        """Returns gate as a tensor."""
+
+        div = self.backend.div
+        sqrt = self.backend.sqrt
+
+        matrix = [1,1,1,-1]
+        return div(matrix,
+                   sqrt(2))
