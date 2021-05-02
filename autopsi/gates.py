@@ -6,14 +6,17 @@ class __GateTensor__:
 
     Args:
         backend (module): Numpy-like Python library to use when compiling a gate to a tensor. (default numpy)
-        dtype (type): Data type to use for gates specified as matrices."""
+        dtype (type): Data type to use for gates specified as matrices.
+        angle (float): Angle parameter for gates that support rotation. (default None)"""
 
     def __init__(self,
                  backend=__np__,
-                 dtype=complex
+                 dtype=complex,
+                 angle=None
                  ):
         self.backend = backend
         self.dtype = dtype
+        self.angle = angle
 
 class h(__GateTensor__):
     """Hadamard gate"""
@@ -28,3 +31,4 @@ class h(__GateTensor__):
                         dtype=self.dtype),
                    sqrt(2)).reshape(2, 2)
 
+class ry
