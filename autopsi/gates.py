@@ -25,4 +25,4 @@ class h(__GateTensor__):
 
         matrix = [1,1,1,-1]
         return div(matrix,
-                   sqrt(2))
+                   sqrt(2)).reshape(2,2)
