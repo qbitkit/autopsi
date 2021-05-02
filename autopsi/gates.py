@@ -13,3 +13,4 @@ class __GateTensor__:
                  dtype=complex
                  ):
         self.backend = backend
+        self.dtype = dtype
