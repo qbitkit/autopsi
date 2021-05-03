@@ -31,3 +31,43 @@ class h(__GateTensor__):
                         dtype=self.dtype),
                    sqrt(2)).reshape(2, 2)
 
+class ry(__GateTensor__):
+    """RY gate. Rotates qubit spin over the Y axis."""
+    def tensor(self):
+        """Returns gate as a tensor."""
+
+        div = self.backend.div
+        sin = self.backend.sin
+        cos = self.backend.cos
+        neg = self.backend.negative
+        arry = self.backend.array
+
+        angle = self.angle
+
+        return arry([
+            cos(
+                div(
+                    angle,
+                    2
+                )
+            ),
+            neg(
+                sin(
+                    div(
+                        angle,
+                        2
+                    )
+                )
+            ),
+            sin(
+                div(
+                    angle,
+                    2
+                )
+            ),
+            cos(
+                div(
+                    angle,
+                    2
+                )
+            )])
