@@ -119,4 +119,71 @@ class u1(__GateTensor__):
             1., 0.,
             0., eilmda
         ])
-    
+
+    class u2(__GateTensor__):
+        """U2 Gate.
+
+        :math:`u2(\phi,\lambda)=\frac{1}{\sqrt{2}}\begin{bmatrix}1 & -e^{i\lambda}\\e^{i\phi} & e^{i(\phi+\lambda)}\end{bmatrix}`
+        """
+
+        def tensor(self,
+                   lmda=0.,
+                   phi=0.):
+            """Returns gate as a tensor.
+
+            Args:
+                lmda(float): Lambda (:math:`\lambda`) value for gate's :math:`\lambda` parameter. (default 0.)
+                phi(float): Phi (:math:`\phi`) value for gate's :math:`phi` parameter. (default 0.)
+            Returns:
+                numpy.array: Gate represented as a tensor."""
+
+            # Alias the backend's array(), exp(), multiply() and negative() and add() functions
+            array = self.backend.array
+            exp = self.backend.exp
+            multiply = self.backend.multiply
+            neg = self.backend.negative
+            add = self.backend.add
+
+            # Alias Euler's constant according to the backend
+            e = self.backend.e
+
+            # Alias the imaginary number i
+            i = 0+1j
+
+            # Create a list to store things we are going to put in our array
+            array_elements = []
+
+            # Add the first element, just the number 1
+            array_elements.append(1)
+
+            # Add the second element by calculating its value
+            array_elements.append(
+                neg(
+                    exp(
+                        e,
+                        multiply(
+                            i,
+                            lmda))))
+
+            # Add the third element by calculating its value
+            array_elements.append(
+                exp(
+                    e,
+                    multiply(
+                        i,
+                        phi)))
+
+            # Add the fourth and final element by calculating its value
+            array_elements.append(
+                exp(
+                    e,
+                    multiply(
+                        i,
+                        add(
+                            phi,
+                            lmda))))
+
+            # Return the generated tensor
+            return array(
+                array_elements, # Use Generated Array Elements
+                dtype=self.dtype) # Ensure dtype of the array matches the user-specified Data Type
