@@ -83,8 +83,7 @@ class u1(__GateTensor__):
 
     :math:`u1(\lambda)=\begin{bmatrix}1 & 0\\0 & e^{i\lambda} \end{bmatrix}`"""
 
-    def tensor(self,
-               lmda=0.):
+    def tensor(self):
         """Returns gate as a tensor.
 
         Args:
