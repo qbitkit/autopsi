@@ -114,10 +114,7 @@ class u1(__GateTensor__):
         )
 
         # Raise Euler's constant to the power of i multiplied by the user-specified lambda value
-        eilmda = exp(
-            eulers_constant,
-            ilmda
-        )
+        eilmda = eulers_constant ** ilmda
 
 
         # Return generated tensor
