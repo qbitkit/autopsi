@@ -148,3 +148,17 @@ class Tensor:
 
         return self.backend.binary_repr(
             weighted_pseudorandom_choice)
+
+    def batch_measure(self,
+                      shots=10,
+                      dtype=int):
+        """Take a specified number of measurements, appending each measurement to a list and returning the resulting list.
+
+        Args:
+            shots(int): A positive integer describing the total number of measurements to take. (default 10)
+            dtype(type): Data Type to use when storing a measurement. (default int)
+        Returns:
+            list: A list containing measurements cast as the specified Data Type."""
+
+        return [self.measure(dtype) # Take a measurement each iteration and append it to the list we return
+                for shot in range(shots)] # Iterate over the number of shots we need to take represented as a range object
