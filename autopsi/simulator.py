@@ -135,16 +135,7 @@ class Tensor:
         Returns:
             return_as_type: Value measured from qubit(s).
         """
-
-        # Initialize variable 'num_probabilities' to track the number of probabilities.
-        num_probabilities = 0
-        # Iterate over the array of probabilities, adding 1 to 'num_probabilities' at each iteration.
-        for item in self.probabilities():
-            num_probabilities += 1
-
-        # Calculate the number of qubits by dividing the number of probabilities by 2.
-        num_qubits = self.backend.divide(num_probabilities, 2)
-
+        
         probabilities_as_float = self.astype(float,
                                              'probabilities')
 
