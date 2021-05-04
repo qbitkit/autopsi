@@ -27,3 +27,9 @@ class TestSingleQubitGates(__tc__):
                 angle=1
             ).tensor().tolist()
         )
+    def test_u1(self):
+        u1_list = [(1+0j), 0j, 0j,
+                   (0.5403023058681398+0.8414709848078965j)]
+        self.assertEqual(u1_list,
+                         __gates__.u1(
+                             lmda=1).tensor().tolist())
