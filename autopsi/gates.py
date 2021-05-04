@@ -86,8 +86,8 @@ class u1(__GateTensor__):
     def tensor(self):
         """Returns gate as a tensor.
 
-        Args:
-            lmda(float): Lambda (:math:`\lambda`) value to specify for gate's :math:`\lambda` parameter. (default 0.)"""
+       Returns:
+                numpy.array: Gate represented as a tensor."""
 
         # Alias the backend's array(), exp() and multiply() functions
         array = self.backend.array
