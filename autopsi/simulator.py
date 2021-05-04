@@ -155,7 +155,5 @@ class Tensor:
                         probabilities_as_float))),
             p=probabilities_as_float)
 
-        return return_as_type(
-            self.backend.binary_repr(
-            weighted_pseudorandom_choice,
-            num_qubits))
+        return self.backend.binary_repr(
+            weighted_pseudorandom_choice)
