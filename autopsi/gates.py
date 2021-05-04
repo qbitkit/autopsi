@@ -71,3 +71,52 @@ class ry(__GateTensor__):
                     2
                 )
             )])
+
+class u1(__GateTensor__):
+    """U1 Gate
+
+    :math:`u1(\lambda)=\begin{bmatrix}1 & 0\\0 & e^{i\lambda} \end{bmatrix}`"""
+
+    def tensor(self,
+               lmda=0.):
+        """Returns gate as a tensor.
+
+        Args:
+            lmda(float): Lambda (:math:`\lambda`) value to specify for gate's :math:`\lambda` parameter. (default 0.)
+        Returns:
+            numpy.array: Gate represented as a tensor."""
+
+        # Alias the backend's array(), exp() and multiply() functions
+        array = self.backend.array
+        exp = self.backend.exp
+        multiply = self.backend.multiply
+
+
+        # Get Euler's constant and convert it to the user-specified dtype
+        eulers_constant = self.dtype(
+            self.backend.e)
+
+        # Get the imaginary number i and convert it to the user-specified dtype
+        imag_number = self.dtype(
+            0.+1.j
+        )
+
+        # Multiply i by the user-specified lambda, giving us the exponent we need to raise Euler's constant to
+        ilmda = multiply(
+            imag_number,
+            lmda
+        )
+
+        # Raise Euler's constant to the power of i multiplied by the user-specified lambda value
+        eilmda = exp(
+            eulers_constant,
+            ilmda
+        )
+
+
+        # Return generated tensor
+        return array([
+            1., 0.,
+            0., eilmda
+        ])
+    
