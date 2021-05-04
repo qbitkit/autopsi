@@ -133,9 +133,7 @@ class u1(__GateTensor__):
         :math:`u2(\phi,\lambda)=\frac{1}{\sqrt{2}}\begin{bmatrix}1 & -e^{i\lambda}\\e^{i\phi} & e^{i(\phi+\lambda)}\end{bmatrix}`
         """
 
-        def tensor(self,
-                   lmda=0.,
-                   phi=0.):
+        def tensor(self):
             """Returns gate as a tensor.
 
             Returns:
