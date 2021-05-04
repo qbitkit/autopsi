@@ -111,8 +111,13 @@ class Tensor:
                 ],
                dtype=dtype # Ensure the array's Data Type gets specified with what we just cast it to.
         )
-    
+
     def count_qubits(self):
+        """Counts the number of qubits being simulated.
+
+        Returns:
+            int: Number of qubits being simulated."""
+
         # Initialize variable 'num_probabilities' to track the number of probabilities.
         num_probabilities = 0
         # Iterate over the array of probabilities, adding 1 to 'num_probabilities' at each iteration.
