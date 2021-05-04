@@ -7,16 +7,22 @@ class __GateTensor__:
     Args:
         backend (module): Numpy-like Python library to use when compiling a gate to a tensor. (default numpy)
         dtype (type): Data type to use for gates specified as matrices.
-        angle (float): Angle parameter for gates that support rotation. (default None)"""
+        angle (float): Angle parameter for gates that support rotation. (default None)
+        lmda (float): Lambda (:math:`\lambda`) value to specify for a supported gate's :math:`\lambda` parameter. (default None)
+        phi (float): Phi (:math:`\phi`) value to specify for a supported gate's :math:`\lambda` parameter. (default None)"""
 
     def __init__(self,
                  backend=__np__,
                  dtype=complex,
-                 angle=None
+                 angle=None,
+                 lmda=None,
+                 phi=None
                  ):
         self.backend = backend
         self.dtype = dtype
         self.angle = angle
+        self.lmda = lmda
+        self.phi = phi
 
 class h(__GateTensor__):
     """Hadamard gate"""
