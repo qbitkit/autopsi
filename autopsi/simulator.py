@@ -79,7 +79,7 @@ class Tensor:
         """Alter the simulator's state by taking the tensor product of the simulator's state and the specified batch of tensors.
 
         Args:
-            list(numpy.ndarray): List of tensors to multiply by the simulator's state. (default None)"""
+            tensors(numpy.ndarray): List of tensors to multiply by the simulator's state. (default None)"""
         if tensors is not None:
             for i in tensors:
                 self.step(tensor=i)
