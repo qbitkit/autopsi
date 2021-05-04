@@ -71,6 +71,7 @@ class Tensor:
 
         Returns:
             list(numpy.ndarray): Timeline of the simulator's state prior to applying each gate."""
+
         if self.history:
             return self.history
 
@@ -80,14 +81,14 @@ class Tensor:
 
         Args:
             tensors(numpy.ndarray): List of tensors to multiply by the simulator's state. (default None)"""
+
         if tensors is not None:
             for i in tensors:
                 self.step(tensor=i)
 
     def astype(self,
                dtype=float,
-               value='amplitudes'
-                           ):
+               value='amplitudes'):
         """Return amplitudes or probabilities forcefully cast to the specified Data Type.
 
         .. warning::
@@ -100,17 +101,16 @@ class Tensor:
         Returns:
             numpy.array: Array forcefully cast to specified dtype.
         """
+
         # Determine which array to copy based on the 'value' keyword parameter.
         array_to_copy = self.amplitudes() if value == 'amplitudes' else self.probabilities()
 
         # Forcefully convert array's Data Type.
         return self.backend.array(
-               [
-                item.astype(dtype) # Convert each variable to the specified Data Type.
-                for item in array_to_copy # Iterate over the array we want to copy.
-                ],
-               dtype=dtype # Ensure the array's Data Type gets specified with what we just cast it to.
-        )
+               [item.astype(dtype) # Convert each variable to the specified Data Type.
+                for item in array_to_copy], # Iterate over the array we want to copy.
+               dtype=dtype) # Ensure the array's Data Type gets specified with what we just cast it to.
+
 
     def count_qubits(self):
         """Counts the number of qubits being simulated.
