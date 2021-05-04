@@ -75,8 +75,8 @@ class Tensor:
         if self.history:
             return self.history
 
-    def batch(self,
-              tensors=None):
+    def batch_step(self,
+                   tensors=None):
         """Alter the simulator's state by taking the tensor product of the simulator's state and the specified batch of tensors.
 
         Args:
@@ -135,7 +135,7 @@ class Tensor:
         Returns:
             return_as_type: Value measured from qubit(s).
         """
-        
+
         probabilities_as_float = self.astype(float,
                                              'probabilities')
 
