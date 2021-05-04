@@ -138,9 +138,6 @@ class u1(__GateTensor__):
                    phi=0.):
             """Returns gate as a tensor.
 
-            Args:
-                lmda(float): Lambda (:math:`\lambda`) value for gate's :math:`\lambda` parameter. (default 0.)
-                phi(float): Phi (:math:`\phi`) value for gate's :math:`phi` parameter. (default 0.)
             Returns:
                 numpy.array: Gate represented as a tensor."""
 
@@ -150,6 +147,10 @@ class u1(__GateTensor__):
             multiply = self.backend.multiply
             neg = self.backend.negative
             add = self.backend.add
+
+            # Get user-specified parameters
+            lmda = self.lmda
+            phi = self.phi
 
             # Alias Euler's constant according to the backend
             e = self.backend.e
