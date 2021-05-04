@@ -23,7 +23,7 @@ class h(__GateTensor__):
     def tensor(self):
         """Returns gate as a tensor."""
 
-        div = self.backend.div
+        div = self.backend.divide
         sqrt = self.backend.sqrt
         arry = self.backend.array
 
@@ -36,7 +36,7 @@ class ry(__GateTensor__):
     def tensor(self):
         """Returns gate as a tensor."""
 
-        div = self.backend.div
+        div = self.backend.divide
         sin = self.backend.sin
         cos = self.backend.cos
         neg = self.backend.negative
