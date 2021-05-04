@@ -31,4 +31,4 @@ jobs:
         python setup.py install
     - name: Lint with flake8.
       run: |
-        time pytest -v
+        time flake8
