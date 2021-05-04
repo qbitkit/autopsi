@@ -111,3 +111,37 @@ class Tensor:
                 ],
                dtype=dtype # Ensure the array's Data Type gets specified with what we just cast it to.
         )
+
+    def measure(self,
+                return_as_type=int):
+        """Takes one measurement of the state of the simulator to a classical binary value.
+
+        Args:
+            return_as_type(type): Return value measured from qubit(s) as a specified type. (default int)
+        Returns:
+            return_as_type: Value measured from qubit(s).
+        """
+
+        # Initialize variable 'num_probabilities' to track the number of probabilities.
+        num_probabilities = 0
+        # Iterate over the array of probabilities, adding 1 to 'num_probabilities' at each iteration.
+        for item in self.probabilities():
+            num_probabilities += 1
+
+        # Calculate the number of qubits by dividing the number of probabilities by 2.
+        num_qubits = self.backend.divide(num_probabilities, 2)
+
+        probabilities_as_float = self.astype(float,
+                                             'probabilities')
+
+        weighted_pseudorandom_choice = self.backend.random.choice(
+            list(
+                range(
+                    len(
+                        probabilities_as_float))),
+            p=probabilities_as_float)
+
+        return return_as_type(
+            self.backend.binary_repr(
+            weighted_pseudorandom_choice,
+            num_qubits))
