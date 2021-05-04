@@ -18,3 +18,12 @@ class TestSingleQubitGates(__tc__):
             h_list,
             __gates__.h().tensor().tolist()
         )
+    def test_ry(self):
+        ry1_list = [0.8775825618903728, -0.479425538604203,
+                    0.479425538604203, 0.8775825618903728]
+        self.assertEqual(
+            ry1_list,
+            __gates__.ry(
+                angle=1
+            ).tensor().tolist()
+        )
