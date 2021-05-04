@@ -83,3 +83,31 @@ class Tensor:
         if tensors is not None:
             for i in tensors:
                 self.step(tensor=i)
+
+    def astype(self,
+               dtype=float,
+               value='amplitudes'
+                           ):
+        """Return amplitudes or probabilities forcefully cast to the specified Data Type.
+
+        .. warning::
+            Using this function to forcefully cast a complex dtype to a float dtype discards its imaginary part.
+            Numpy will throw a ComplexWarning if you convert from complex to float.
+
+        Args:
+            dtype(type): Data Type to convert (default float)
+            value(str): Returns probabilities if set to 'probabilities', and amplitudes if set to 'amplitudes'. (default 'amplitudes')
+        Returns:
+            numpy.array: Array forcefully cast to specified dtype.
+        """
+        # Determine which array to copy based on the 'value' keyword parameter.
+        array_to_copy = self.amplitudes() if value == 'amplitudes' else self.probabilities()
+
+        # Forcefully convert array's Data Type.
+        return self.backend.array(
+               [
+                item.astype(dtype) # Convert each variable to the specified Data Type.
+                for item in array_to_copy # Iterate over the array we want to copy.
+                ],
+               dtype=dtype # Ensure the array's Data Type gets specified with what we just cast it to.
+        )
