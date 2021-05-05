@@ -111,21 +111,6 @@ class Tensor:
                 for item in array_to_copy], # Iterate over the array we want to copy.
                dtype=dtype) # Ensure the array's Data Type gets specified with what we just cast it to.
 
-
-    def count_qubits(self):
-        """Counts the number of qubits being simulated.
-
-        Returns:
-            int: Number of qubits being simulated."""
-
-        # Initialize variable 'num_probabilities' to track the number of probabilities.
-        num_probabilities = 0
-        # Iterate over the array of probabilities, adding 1 to 'num_probabilities' at each iteration.
-        for item in self.probabilities():
-            num_probabilities += 1
-        # Return the number of qubits by dividing the number of probabilities by 2.
-        return self.backend.divide(num_probabilities, 2)
-
     def measure(self,
                 return_as_type=int):
         """Takes one measurement of the state of the simulator to a classical binary value.
