@@ -135,9 +135,8 @@ class u2(__GateTensor__):
         Returns:
             numpy.array: Gate represented as a tensor."""
 
-        # Alias the backend's array(), exp(), multiply() and negative() and add() functions
+        # Alias the backend's array(), multiply() and negative() and add() functions
         array = self.backend.array
-        exp = self.backend.exp
         multiply = self.backend.multiply
         neg = self.backend.negative
         add = self.backend.add
