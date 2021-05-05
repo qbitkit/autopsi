@@ -97,7 +97,6 @@ class u1(__GateTensor__):
 
         # Alias the backend's array(), exp() and multiply() functions
         array = self.backend.array
-        exp = self.backend.exp
         multiply = self.backend.multiply
 
         # Grab the lambda value
