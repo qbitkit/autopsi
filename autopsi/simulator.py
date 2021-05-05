@@ -64,7 +64,8 @@ class Tensor:
 
         Returns:
             numpy.ndarray: Current state of the simulator, as probabilities"""
-        return self.state ** 2
+        abs = self.backend.abs
+        return abs(self.state) ** 2
 
     def history(self):
         """If the simulator has tracing enabled, this function will return the history of the simulator's state.
