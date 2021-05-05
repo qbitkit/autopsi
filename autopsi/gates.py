@@ -135,11 +135,13 @@ class u2(__GateTensor__):
         Returns:
             numpy.array: Gate represented as a tensor."""
 
-        # Alias the backend's array(), multiply() and negative() and add() functions
+        # Alias the backend's array(), multiply(), negative(), add(), divide(), and sqrt() functions
         array = self.backend.array
         multiply = self.backend.multiply
         neg = self.backend.negative
         add = self.backend.add
+        div = self.backend.divide
+        sqrt = self.backend.sqrt
 
         # Get user-specified parameters
         lmda = self.lmda
@@ -173,7 +175,9 @@ class u2(__GateTensor__):
                           add(phi,
                               lmda)))
 
-        # Return the generated tensor
-        return array(
-            array_elements, # Use Generated Array Elements
-            dtype=self.dtype) # Ensure dtype of the array matches the user-specified Data Type
+        # Return the generated tensor divided by sqrt(2)
+        return div(
+            array(
+                array_elements, # Use Generated Array Elements
+                dtype=self.dtype), # Ensure dtype of the array matches the user-specified Data Type
+            sqrt(2)) # Divide the array by sqrt(2)
