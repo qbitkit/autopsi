@@ -38,7 +38,10 @@ class h(__GateTensor__):
                    sqrt(2)).reshape(2, 2)
 
 class ry(__GateTensor__):
-    """RY gate. Rotates qubit spin over the Y axis."""
+    """RY gate. Rotates qubit spin over the Y axis.
+
+    .. note::
+        This gate requires the angle parameter to be specified."""
     def tensor(self):
         """Returns gate as a tensor."""
 
@@ -81,7 +84,10 @@ class ry(__GateTensor__):
 class u1(__GateTensor__):
     """U1 Gate
 
-    :math:`u1(\lambda)=\begin{bmatrix}1 & 0\\0 & e^{i\lambda} \end{bmatrix}`"""
+    :math:`u1(\lambda)=\begin{bmatrix}1 & 0\\0 & e^{i\lambda} \end{bmatrix}`
+
+    .. note::
+        This gate requires the lambda (:math:`\lambda`) parameter to be specified."""
 
     def tensor(self):
         """Returns gate as a tensor.
@@ -127,6 +133,8 @@ class u2(__GateTensor__):
     """U2 Gate.
 
     :math:`u2(\phi,\lambda)=\frac{1}{\sqrt{2}}\begin{bmatrix}1 & -e^{i\lambda}\\e^{i\phi} & e^{i(\phi+\lambda)}\end{bmatrix}`
+    .. note::
+        This gate requires both the phi (:math:`\phi`) and lambda (:math:`\lambda`) parameters to be specified.
     """
 
     def tensor(self):
