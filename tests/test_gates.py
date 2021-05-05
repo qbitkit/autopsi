@@ -33,3 +33,14 @@ class TestSingleQubitGates(__tc__):
         self.assertEqual(u1_list,
                          __gates__.u1(
                              lmda=1).tensor().tolist())
+
+    def test_u2(self):
+        u2_list = [(1+0j),
+                   (-0.5403023058681398-0.8414709848078965j),
+                   (0.5403023058681398+0.8414709848078965j),
+                   (-0.4161468365471424+0.9092974268256817j)]
+        self.assertEqual(u2_list,
+                         __gates__.u2(
+                             lmda=1,
+                             phi=1
+                         ).tensor().tolist())
