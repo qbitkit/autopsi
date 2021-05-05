@@ -160,30 +160,19 @@ class u2(__GateTensor__):
 
         # Add the second element by calculating its value
         array_elements.append(
-            neg(
-                exp(
-                    e,
-                    multiply(
-                        i,
-                        lmda))))
+            neg(e ** multiply(i,
+                              lmda)))
 
         # Add the third element by calculating its value
         array_elements.append(
-            exp(
-                e,
-                multiply(
-                    i,
-                    phi)))
+            e ** multiply(i,
+                          phi))
 
         # Add the fourth and final element by calculating its value
         array_elements.append(
-            exp(
-                e,
-                multiply(
-                    i,
-                    add(
-                        phi,
-                        lmda))))
+            e ** multiply(i,
+                          add(phi,
+                              lmda)))
 
         # Return the generated tensor
         return array(
