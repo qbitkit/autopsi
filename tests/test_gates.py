@@ -1,6 +1,5 @@
 from unittest import TestCase as __tc__
 from autopsi import gates as __gates__
-import numpy as __np__
 
 
 class TestInternalFunctions(__tc__):
