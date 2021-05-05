@@ -146,8 +146,9 @@ class Tensor:
                         probabilities_as_float))),
             p=probabilities_as_float)
 
-        return self.backend.binary_repr(
-            weighted_pseudorandom_choice)
+        return return_as_type(
+            self.backend.binary_repr(
+                weighted_pseudorandom_choice))
 
     def batch_measure(self,
                       shots=10,
