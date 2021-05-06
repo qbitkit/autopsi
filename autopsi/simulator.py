@@ -124,7 +124,7 @@ class Tensor:
 
         Args:
             tensor (list): If specified, the value of the simulator will be multiplied by the specified tensor."""
-        product = self.backend.matmul
+        product = self.backend.dot
 
         if tensor is not None:
 
